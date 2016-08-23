@@ -147,7 +147,7 @@
                     </security>
                 </datasource>
                 <datasource jta="false" jndi-name="java:/org.openepics.names.data" pool-name="java:/org.openepics.conf.dbpool" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:postgresql://localhost:5432/discs_names</connection-url>
+                    <connection-url>jdbc:postgresql://naming-service-postgres:5432/discs_names</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
                     <!-- <driver>postgresql</driver> -->
                     <driver>postgresql-9.4.1207.jar</driver>
