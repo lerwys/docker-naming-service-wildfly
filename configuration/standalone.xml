@@ -29,6 +29,9 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
+    <system-properties>
+        <property name="names.ccdbURL" value="https://localhost/ccdb"/>
+    </system-properties>
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
