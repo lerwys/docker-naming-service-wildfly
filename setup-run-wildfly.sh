@@ -11,7 +11,7 @@ set -u
 ./download-pre-reqs.sh
 
 # Build image
-./build.sh ${POSTGRES_VERSION} ${NAMES_VERSION}
+./build.sh ${POSTGRES_VERSION} ${NAMES_VERSION} ${NAMING_CONVENTION_TARGET_WAR}
 
 # Create docker network
 ./create-net.sh ${NET_NAME}

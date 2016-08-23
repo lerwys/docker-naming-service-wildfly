@@ -2,6 +2,10 @@
 
 POSTGRES_VERSION="$1"
 NAMES_VERSION="$2"
+NAMING_CONVENTION_TARGET_WAR="$3"
+
+# Copy files to correct locations
+cp ${NAMING_CONVENTION_TARGET_WAR} deploy/
 
 # Change this if your Host have a "sane" DNS like 168.192.1.1
 OPTNAMESERVER="echo nameserver 10.0.0.71 > /etc/resolv.conf \&\& \\\\"
