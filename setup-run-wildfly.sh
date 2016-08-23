@@ -4,14 +4,18 @@ set -a
 set -e
 set -u
 
-NET_NAME="naming-service-net"
-DNS_IP="10.0.0.72"
+# Source env vars
+. ./env-vars.sh
+
+# Download prereqs
+./download-pre-reqs.sh
 
 # Build image
-./build.sh
+./build.sh ${POSTGRES_VERSION}
 
 # Create docker network
 ./create-net.sh ${NET_NAME}
 
 # Run postgres
-./run-wildfly.sh ${NET_NAME} ${DNS_IP}
+./run-wildfly.sh ${NET_NAME} ${DNS_IP} ${WILDFLY_PORT} ${LOCAL_WILDFLY_PORT} \
+    ${ADMIN_PORT} ${LOCAL_ADMIN_PORT}
