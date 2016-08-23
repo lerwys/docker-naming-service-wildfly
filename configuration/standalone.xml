@@ -359,6 +359,16 @@
                         <auth-module code="Dummy"/>
                     </authentication-jaspi>
                 </security-domain>
+                <security-domain name="namesTest.security-domain" cache-type="default">
+                    <authentication>
+                        <login-module code="RealmUsersRoles" flag="required">
+                            <module-option name="usersProperties" value="${jboss.server.config.dir}/names-users.properties"/>
+                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/names-roles.properties"/>
+                            <module-option name="realm" value="org.openepics.names.realm"/>
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:transactions:3.0">
