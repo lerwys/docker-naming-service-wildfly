@@ -13,5 +13,7 @@ LOCAL_ADMIN_PORT="$6"
 
 # Run Wildfly
 docker run --name naming-service-wildfly --net ${NET_NAME} --dns ${DNS_IP} \
-    -p ${LOCAL_WILDFLY_PORT}:${WILDFLY_PORT} -p ${LOCAL_ADMIN_PORT}:${ADMIN_PORT}\
-    -d lerwys/docker-naming-service-wildfly /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    -p ${LOCAL_WILDFLY_PORT}:${WILDFLY_PORT} -p ${LOCAL_ADMIN_PORT}:${ADMIN_PORT} \
+    -d --entrypoint "/wait-for-it.sh" lerwys/docker-naming-service-wildfly \
+    naming-service-postgres:5432 -- /opt/jboss/wildfly/bin/standalone.sh \
+    -b 0.0.0.0 -bmanagement 0.0.0.0
