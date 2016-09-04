@@ -30,7 +30,7 @@
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
     <system-properties>
-        <property name="names.ccdbURL" value="https://localhost/ccdb"/>
+        <property name="names.ccdbURL" value="http://localhost:8083"/>
     </system-properties>
     <management>
         <security-realms>
