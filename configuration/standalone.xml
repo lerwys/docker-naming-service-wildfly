@@ -30,6 +30,17 @@
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
     <system-properties>
+        <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
+        <property name="rbac.default.accept.certificate" value="true"/>
+        <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
+        <property name="rbac.primaryServicesURL" value="https://rbac-auth-services:8443/service"/>
+        <property name="rbac.primarySSLHost" value="rbac-auth-services"/>
+        <property name="rbac.primarySSLPort" value="8443"/>
+        <property name="rbac.secondaryServicesURL" value="https://localhost:8443/service"/>
+        <property name="rbac.secondarySSLHost" value="localhost"/>
+        <property name="rbac.secondarySSLPort" value="8443"/>
+        <property name="rbac.useLocalService" value="false" />
+
         <property name="names.ccdbURL" value="http://localhost:8083"/>
     </system-properties>
     <management>
@@ -364,13 +375,22 @@
                         <auth-module code="Dummy"/>
                     </authentication-jaspi>
                 </security-domain>
-                <security-domain name="namesTest.security-domain" cache-type="default">
+                <!-- <security-domain name="namesTest.security-domain" cache-type="default"> -->
+                <!--     <authentication> -->
+                <!--         <login-module code="RealmUsersRoles" flag="required"> -->
+                <!--             <module-option name="usersProperties" value="${jboss.server.config.dir}/names-users.properties"/> -->
+                <!--             <module-option name="rolesProperties" value="${jboss.server.config.dir}/names-roles.properties"/> -->
+                <!--             <module-option name="realm" value="org.openepics.names.realm"/> -->
+                <!--             <module-option name="password-stacking" value="useFirstPass"/> -->
+                <!--         </login-module> -->
+                <!--     </authentication> -->
+                <!-- </security-domain> -->
+                <security-domain name="namesRBAC.security-domain" cache-type="default">
                     <authentication>
-                        <login-module code="RealmUsersRoles" flag="required">
-                            <module-option name="usersProperties" value="${jboss.server.config.dir}/names-users.properties"/>
-                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/names-roles.properties"/>
-                            <module-option name="realm" value="org.openepics.names.realm"/>
-                            <module-option name="password-stacking" value="useFirstPass"/>
+                        <login-module code="se.esss.ics.rbac.loginmodules.RBACLoginModule" flag="required">
+                            <module-option name="RBACResource" value="NamingService"/>
+                            <module-option name="RBACPermissionsOfInterest" value="Edit,Manage"/>
+                            <module-option name="mapRBACPermissionsToASRoles" value="false"/>
                         </login-module>
                     </authentication>
                 </security-domain>
