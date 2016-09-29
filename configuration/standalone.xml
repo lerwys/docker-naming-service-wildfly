@@ -41,7 +41,7 @@
         <property name="rbac.secondarySSLPort" value="8443"/>
         <property name="rbac.useLocalService" value="false" />
 
-        <property name="names.ccdbURL" value="http://localhost:8083"/>
+        <property name="names.ccdbURL" value="http://10.0.7.55:8083"/>
     </system-properties>
     <management>
         <security-realms>
