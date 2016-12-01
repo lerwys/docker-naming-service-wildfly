@@ -12,7 +12,7 @@ RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
     /opt/jboss/wildfly/bin/add-user.sh admin admin --silent
 
 # Install missing dependencies
-RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
+RUN echo "bust2" && echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
     yum install -y git maven && yum clean all
 
 # Setup git, only for applying patches
@@ -21,6 +21,7 @@ RUN git config --global user.name "Naming Service Docker"
 
 # Create build directory
 RUN mkdir -p /build
+RUN mkdir -p /build/patches
 RUN mkdir -p /deploy
 
 # Copy compilation scripts to build directory
@@ -32,6 +33,9 @@ COPY setup-wildfly.sh \
 
 # Add our custom configuration
 ADD configuration /opt/jboss/wildfly/standalone/configuration/
+
+# Add our patches
+ADD patches /build/patches
 
 # Change to build directory
 WORKDIR /build
