@@ -23,5 +23,5 @@ cd ..
 
 # Build Naming Convention tool
 cd ${NAMING_CONVENTION_REPO}
-mvn install -P local
+mvn install -P production
 cd ..
