@@ -21,6 +21,11 @@ cd ${ESS_JAVA_CONFIG_REPO}
 mvn install
 cd ..
 
+# Apply patches
+cd ${NAMING_CONVENTION_REPO}
+git am --ignore-whitespace /build/patches/naming/*
+cd ..
+
 # Build Naming Convention tool
 cd ${NAMING_CONVENTION_REPO}
 mvn install -P production
