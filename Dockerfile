@@ -12,7 +12,7 @@ RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
     /opt/jboss/wildfly/bin/add-user.sh admin admin --silent
 
 # Install missing dependencies
-RUN echo "bust2" && echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
+RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
     yum install -y git maven && yum clean all
 
 # Setup git, only for applying patches
