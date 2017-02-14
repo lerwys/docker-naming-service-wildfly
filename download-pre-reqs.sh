@@ -23,7 +23,7 @@ cd ..
 
 # Apply patches
 cd ${NAMING_CONVENTION_REPO}
-git am --ignore-whitespace /build/patches/naming/*
+git am --ignore-whitespace /build/patches/naming/${NAMES_VERSION}/*
 cd ..
 
 # Build Naming Convention tool
