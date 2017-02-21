@@ -1,0 +1,25 @@
+From 0e2e1ea3d1bad3f31e2cf06ddbae0be05c7a1670 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Tue, 6 Sep 2016 08:35:49 -0300
+Subject: [PATCH 3/5] NamingConventionTool: use RBAC authentication for local
+ profile
+
+---
+ NamingConventionTool/src/main/webapp/WEB-INF/local/jboss-web.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/NamingConventionTool/src/main/webapp/WEB-INF/local/jboss-web.xml b/NamingConventionTool/src/main/webapp/WEB-INF/local/jboss-web.xml
+index 6bc4db2..21c87cd 100644
+--- a/NamingConventionTool/src/main/webapp/WEB-INF/local/jboss-web.xml
++++ b/NamingConventionTool/src/main/webapp/WEB-INF/local/jboss-web.xml
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <jboss-web>
+-	<security-domain>namesTest.security-domain</security-domain>
+-</jboss-web>
+\ No newline at end of file
++    <security-domain>namesRBAC.security-domain</security-domain>
++</jboss-web>
+-- 
+1.9.1
+

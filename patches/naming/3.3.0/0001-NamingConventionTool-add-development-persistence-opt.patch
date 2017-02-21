@@ -1,0 +1,29 @@
+From 34f1c81834f81cc0abb875c3979165abe5a1084d Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Tue, 23 Aug 2016 21:06:53 -0300
+Subject: [PATCH 1/5] NamingConventionTool: add development persistence options
+ by default
+
+---
+ NamingConventionTool/src/main/resources/META-INF/persistence.xml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/NamingConventionTool/src/main/resources/META-INF/persistence.xml b/NamingConventionTool/src/main/resources/META-INF/persistence.xml
+index 0100a06..e4148b3 100644
+--- a/NamingConventionTool/src/main/resources/META-INF/persistence.xml
++++ b/NamingConventionTool/src/main/resources/META-INF/persistence.xml
+@@ -14,8 +14,8 @@
+     <validation-mode>NONE</validation-mode>
+     
+     <!-- Use for development purposes only -->
+-<!--     <properties> -->
+-<!--       <property name="hibernate.hbm2ddl.auto" value="update"/> -->
+-<!--     </properties>  -->
++     <properties>
++       <property name="hibernate.hbm2ddl.auto" value="update"/>
++     </properties>
+   </persistence-unit>
+ </persistence>
+-- 
+1.9.1
+
