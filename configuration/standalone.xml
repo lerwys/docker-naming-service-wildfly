@@ -33,15 +33,15 @@
         <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
         <property name="rbac.default.accept.certificate" value="true"/>
         <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
-        <property name="rbac.primaryServicesURL" value="https://rbac-auth-services:8443/service"/>
-        <property name="rbac.primarySSLHost" value="rbac-auth-services"/>
+        <property name="rbac.primaryServicesURL" value=" https://sirius-rbac-auth.lnls.br:8443/service"/>
+        <property name="rbac.primarySSLHost" value="sirius-rbac-auth.lnls.br"/>
         <property name="rbac.primarySSLPort" value="8443"/>
         <property name="rbac.secondaryServicesURL" value="https://localhost:8443/service"/>
         <property name="rbac.secondarySSLHost" value="localhost"/>
         <property name="rbac.secondarySSLPort" value="8443"/>
         <property name="rbac.useLocalService" value="false" />
 
-        <property name="names.ccdbURL" value="http://10.0.7.55:8083"/>
+        <property name="names.ccdbURL" value="http://sirius-ccdb.lnls.br:8083"/>
     </system-properties>
     <management>
         <security-realms>
@@ -408,7 +408,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <http-listener name="default" socket-binding="http" redirect-socket="https"/>
-                <host name="default-host" alias="naming-service-wildfly, localhost, 10.0.7.55, 10.0.21.122">
+                <host name="default-host" alias="naming-service-wildfly, sirius-ns.lnls.br, localhost, 10.0.7.55">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
