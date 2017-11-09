@@ -1,0 +1,27 @@
+From b45d347dc42988c19c5a8b03310e22d96f3790c2 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Tue, 6 Sep 2016 08:46:34 -0300
+Subject: [PATCH 4/5] NamingConventionTool: use same server name for production
+
+---
+ NamingConventionTool/src/main/webapp/WEB-INF/production/jboss-web.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/NamingConventionTool/src/main/webapp/WEB-INF/production/jboss-web.xml b/NamingConventionTool/src/main/webapp/WEB-INF/production/jboss-web.xml
+index d841441..b80c6e9 100644
+--- a/NamingConventionTool/src/main/webapp/WEB-INF/production/jboss-web.xml
++++ b/NamingConventionTool/src/main/webapp/WEB-INF/production/jboss-web.xml
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <jboss-web>
+-	<server-instance>default-server_external</server-instance>
++	<server-instance>default-server</server-instance>
+ 	<context-root>/</context-root>
+ 	<security-domain>namesRBAC.security-domain</security-domain>
+ 	<virtual-host>names</virtual-host>
+-</jboss-web>
+\ No newline at end of file
++</jboss-web>
+-- 
+1.9.1
+
