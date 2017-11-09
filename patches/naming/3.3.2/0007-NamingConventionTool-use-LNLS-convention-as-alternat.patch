@@ -1,0 +1,31 @@
+From 8f1e6b3780b7d4f3ebe0b2b579b0f925e815f7d4 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Thu, 9 Nov 2017 12:21:12 -0200
+Subject: [PATCH] NamingConventionTool: use LNLS convention as alternative
+
+---
+ NamingConventionTool/src/main/webapp/WEB-INF/beans.xml | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/NamingConventionTool/src/main/webapp/WEB-INF/beans.xml b/NamingConventionTool/src/main/webapp/WEB-INF/beans.xml
+index 6b0f143..62801fc 100644
+--- a/NamingConventionTool/src/main/webapp/WEB-INF/beans.xml
++++ b/NamingConventionTool/src/main/webapp/WEB-INF/beans.xml
+@@ -4,10 +4,11 @@
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+ 
+     <alternatives>
+-        <class>org.openepics.names.services.EssNamingConvention</class>
++        <class>org.openepics.names.services.LnlsNamingConvention</class>
++<!--        <class>org.openepics.names.services.EssNamingConvention</class> -->
+ <!--         <class>org.openepics.names.services.FribNamingConvention</class> -->
+-        <class>org.openepics.names.services.SessionServiceRBAC</class>    
++        <class>org.openepics.names.services.SessionServiceRBAC</class>
+ <!--         <class>org.openepics.names.services.SessionServiceTest</class>     -->
+     </alternatives>
+-    
++
+ </beans>
+-- 
+2.7.4
+
