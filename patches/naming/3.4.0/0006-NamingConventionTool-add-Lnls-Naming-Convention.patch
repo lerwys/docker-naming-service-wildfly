@@ -76,7 +76,7 @@ index 0000000..4cb1c41
 +	}
 +
 +	@Override public boolean isInstanceIndexValid(List<String> sectionPath, List<String> deviceTypePath, @Nullable String instanceIndex) {
-+		return isNameValid(instanceIndex, 0,6);
++		return isNameValid(instanceIndex, 0,12);
 +	}
 +
 +	@Override public String equivalenceClassRepresentative(@Nullable String name) {
@@ -275,6 +275,6 @@ index 0000000..4cb1c41
 +	}
 +
 +}
--- 
+--
 1.9.1
 
