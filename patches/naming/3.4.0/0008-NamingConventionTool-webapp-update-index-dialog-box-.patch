@@ -1,0 +1,29 @@
+From 9d689ee00f7473f6521a26ccac978d1b3460c8ec Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Mon, 4 Dec 2017 09:48:37 -0200
+Subject: [PATCH] NamingConventionTool/*/webapp/*: update index dialog box to
+ 12 characters
+
+As we have updated our naming convention to use
+12 characters as index, we need to update the
+documentation as well.
+---
+ .../src/main/webapp/WEB-INF/includes/devices-wizard.xhtml               | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NamingConventionTool/src/main/webapp/WEB-INF/includes/devices-wizard.xhtml b/NamingConventionTool/src/main/webapp/WEB-INF/includes/devices-wizard.xhtml
+index b3ac151..c231c4f 100644
+--- a/NamingConventionTool/src/main/webapp/WEB-INF/includes/devices-wizard.xhtml
++++ b/NamingConventionTool/src/main/webapp/WEB-INF/includes/devices-wizard.xhtml
+@@ -91,7 +91,7 @@
+ 					<ol>
+ 						<li>The instance index is alphanumeric. I.e., only upper and
+ 							lower case alphanumeric characters (a-z, A-Z, 0-9) are allowed.</li>
+-						<li>The instance instance index ranges between 0 and 6
++						<li>The instance instance index ranges between 0 and 12
+ 							characters.</li>
+ 						<li>Within the selected area (<sec>Sec-Sub</sec>) and for the
+ 							selected device definition (<dev>Dis-Dev</dev>) the instance
+-- 
+2.7.4
+
