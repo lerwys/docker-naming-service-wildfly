@@ -1,0 +1,29 @@
+From 347a534ee65a1540d324e2565891187bc4b4fe37 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 6 Apr 2018 18:23:51 -0300
+Subject: [PATCH 6/6] NamingConventionTool: fix checking distinguishable "l"
+ and "I" only
+
+It happens that only "l" and "I" are confusable,
+not "L" and "i". So, first check for "l" and "I"
+and then convert the remaining characters to uppercase.
+---
+ .../main/java/org/openepics/names/services/LnlsNamingConvention.java    | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NamingConventionTool/src/main/java/org/openepics/names/services/LnlsNamingConvention.java b/NamingConventionTool/src/main/java/org/openepics/names/services/LnlsNamingConvention.java
+index 8bf807e..c26d9d2 100644
+--- a/NamingConventionTool/src/main/java/org/openepics/names/services/LnlsNamingConvention.java
++++ b/NamingConventionTool/src/main/java/org/openepics/names/services/LnlsNamingConvention.java
+@@ -68,7 +68,7 @@ public class LnlsNamingConvention implements NamingConvention {
+ 
+     @Override
+     public String equivalenceClassRepresentative(@Nullable String name) {
+-        return name != null ? name.toUpperCase().replaceAll("(?<=[A-Za-z])0+", "").replace('I', '1').replace('L', '1').replace('O', '0').replaceAll("(?<!\\d)0+(?=\\d)", "") : null;
++        return name!=null ? name.replace('I', '1').replace('l', '1').toUpperCase().replaceAll("(?<=[A-Za-z])0+", "").replace('O', '0').replaceAll("(?<!\\d)0+(?=\\d)", ""):null;
+     }
+ 
+     @Override
+-- 
+2.7.4
+
