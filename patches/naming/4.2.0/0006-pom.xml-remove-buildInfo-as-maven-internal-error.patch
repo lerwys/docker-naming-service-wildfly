@@ -1,0 +1,55 @@
+From f265c66ceb4acb870b26e9d0c261d38d51e0f5ae Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Wed, 11 Apr 2018 12:57:07 -0300
+Subject: [PATCH] pom.xml: remove buildInfo as maven internal error
+
+---
+ pom.xml | 34 ----------------------------------
+ 1 file changed, 34 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index e37961d..085e6d8 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -25,38 +25,4 @@
+         <module>NamingConventionTool-Client</module>
+     </modules>
+ 
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>org.jfrog.buildinfo</groupId>
+-                <artifactId>artifactory-maven-plugin</artifactId>
+-                <version>2.6.1</version>
+-                <inherited>false</inherited>
+-                <executions>
+-                    <execution>
+-                        <id>build-info</id>
+-                        <goals>
+-                            <goal>publish</goal>
+-                        </goals>
+-                        <configuration>
+-                            <publisher>
+-                                <contextUrl>${artifactory.url}</contextUrl>
+-                                <username>${artifactory.username}</username>
+-                                <password>${artifactory.password}</password>
+-                                <repoKey>libs-release-local</repoKey>
+-                                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+-                            </publisher>
+-                            <buildInfo>
+-                                <agentName>{{JENKINS_URL}}</agentName>
+-                                <agentVersion>{{JENKINS_VERSION}}</agentVersion>
+-                                <buildNumber>{{BUILD_NUMBER}}</buildNumber>
+-                                <buildUrl>{{BUILD_URL}}</buildUrl>
+-                            </buildInfo>
+-                        </configuration>
+-                    </execution>
+-                </executions>
+-            </plugin>
+-        </plugins>
+-    </build>
+-
+ </project>
+-- 
+2.7.4
+
