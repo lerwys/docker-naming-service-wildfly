@@ -1,6 +1,6 @@
 # Wildfly server with additional configurations
 
-FROM jboss/wildfly:9.0.2.Final
+FROM jboss/wildfly:10.1.0.Final
 
 MAINTAINER Lucas Russo
 
